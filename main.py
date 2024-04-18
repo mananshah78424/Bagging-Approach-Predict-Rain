@@ -31,27 +31,27 @@ print('train_targets:', train_target.shape)
 print('test_inputs:', test_inputs.shape)
 print('test_targets:', test_target.shape)
 
-svc = SVC(C = 0.01, kernel= "sigmoid", random_state=42)
-svc.fit(train_inputs,train_target)
-y_pred = svc.predict(test_inputs)
+# svc = SVC(C = 0.01, kernel= "sigmoid", random_state=42)
+# svc.fit(train_inputs,train_target)
+# y_pred = svc.predict(test_inputs)
 
-print("SVC accuracy",accuracy_score(test_target,y_pred))
+# print("SVC accuracy",accuracy_score(test_target,y_pred))
 
-#Not such a great score, lets try bagging approach - SVC accuracy 0.7533718689788054
+# #Not such a great score, lets try bagging approach - SVC accuracy 0.7533718689788054
 
 
-bagging = BaggingClassifier(
-    base_estimator=SVC(),
-    n_estimators=500,
-    max_samples=0.5,
-    bootstrap=True,
-    random_state=42
-)
+# bagging = BaggingClassifier(
+#     base_estimator=SVC(),
+#     n_estimators=500,
+#     max_samples=0.5,
+#     bootstrap=True,
+#     random_state=42
+# )
     
-bagging.fit(train_inputs,train_target)
-y_pred = bagging.predict(test_inputs)
-print("Bagging using SVC",accuracy_score(test_target,y_pred))
-#Fairly decent score - Bagging using SVC 0.8073217726396917
+# bagging.fit(train_inputs,train_target)
+# y_pred = bagging.predict(test_inputs)
+# print("Bagging using SVC",accuracy_score(test_target,y_pred))
+# #Fairly decent score - Bagging using SVC 0.8073217726396917
 
 
 
